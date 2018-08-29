@@ -39,7 +39,7 @@ fi;
 
 curl -L http://install.ohmyz.sh | sh;
 
-# git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh
 
 rsync --exclude ".git/" \
     --exclude "bootstrap.sh" \
