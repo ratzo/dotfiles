@@ -41,6 +41,25 @@ curl -L http://install.ohmyz.sh | sh;
 
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh
 
+# Install Firacode fonts
+mkdir /tmp/firacode
+
+cd /tmp/firacode
+
+LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/tonsky/FiraCode/releases/latest)
+LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+
+curl --silent -L "https://github.com/tonsky/FiraCode/archive/$LATEST_VERSION.zip" --output firacode.zip
+
+bsdtar -xf firacode.zip -s'|[^/]*/||'
+
+rsync distr/otf $HOME/Library/Fonts
+
+cd $OLDPWD
+
+rm -fr /tmp/firacode
+
+# Sync dot files
 rsync --exclude ".git/" \
     --exclude "bootstrap.sh" \
     -avh --no-perms . ~;
