@@ -27,7 +27,9 @@ brew upgrade;
 # Badassify your terminal
 # http://jilles.me/badassify-your-terminal-and-shell/
 
-touch ~/.hushlogin;
+brew cask install iterm2
+
+cp com.googlecode.iterm2.plist $HOME/Library/Application\ Support
 
 brew install zsh;
 
@@ -39,7 +41,7 @@ fi;
 
 curl -L http://install.ohmyz.sh | sh;
 
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh
 
 # Install Firacode fonts
 mkdir /tmp/firacode
@@ -64,6 +66,7 @@ rsync --exclude ".git/" \
     --exclude "bootstrap.sh" \
     --exclude "sync.sh" \
     --exclude "README.md" \
+    --exclude "com.googlecode.iterm2.plist" \
     -avh --no-perms . ~;
 
 source ~/.zshrc;
