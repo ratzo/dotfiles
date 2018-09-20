@@ -99,3 +99,5 @@ prompt_context() {
 }
 
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export TERM="xterm-256color"

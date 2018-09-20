@@ -1,11 +1,15 @@
 #!/usr/bin/env sh
 
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 if xcode-select --print-path &>/dev/null; then
     echo "XCode command line tools already installed."
 elif xcode-select --install &>/dev/null; then
     echo "Finished installing XCode command line tools."
-else
-    echo "Failed to install XCode command line tools."
 fi
 
 # Install homebrew if it is not installed
@@ -28,7 +32,6 @@ brew upgrade;
 # http://jilles.me/badassify-your-terminal-and-shell/
 
 brew cask install iterm2
-
 cp com.googlecode.iterm2.plist $HOME/Library/Application\ Support
 
 brew install zsh;
@@ -61,10 +64,13 @@ cd $OLDPWD
 
 rm -fr /tmp/firacode
 
+brew install tmux
+
 # Sync dot files
 rsync --exclude ".git/" \
     --exclude "bootstrap.sh" \
     --exclude "sync.sh" \
+    --exclude "osx.sh" \
     --exclude "README.md" \
     --exclude "com.googlecode.iterm2.plist" \
     -avh --no-perms . ~;
