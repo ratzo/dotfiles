@@ -80,6 +80,7 @@ rsync --exclude ".git/" \
     --exclude "sync.sh" \
     --exclude "osx.sh" \
     --exclude "README.md" \
+    --exclude "LICENSE" \
     --exclude "com.googlecode.iterm2.plist" \
     -avh --no-perms . ~;
 
