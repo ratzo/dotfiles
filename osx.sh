@@ -18,6 +18,9 @@ defaults write com.apple.frameworks.diskimages skip-verify -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
+# Show Battery percentage
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
 # Safari Disable Open "safe" files after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
