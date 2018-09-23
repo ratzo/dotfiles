@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # Disable opening iTunes automatically when connecting an iPod/iPhone
 defaults write com.apple.iTunes dontAutomaticallySyncIPods -bool true
 
@@ -43,5 +49,10 @@ defaults write com.apple.dock autohide -bool true
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
+
+################################################################
+# DNS Servers - Override default DNS servers
+################################################################
+sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
