@@ -14,7 +14,7 @@ elif xcode-select --install &>/dev/null; then
     echo "Finished installing XCode command line tools."
 fi
 
-if [ -d "$dotfiles" ]; then
+if [ ! -d "$dotfiles" ]; then
     git clone https://github.com/ratzo/dotfiles.git $dotfiles
 fi
 
