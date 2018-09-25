@@ -8,11 +8,7 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-if xcode-select --print-path &>/dev/null; then
-    echo "XCode command line tools already installed."
-elif xcode-select --install &>/dev/null; then
-    echo "Finished installing XCode command line tools."
-fi
+xcode-select --install &>/dev/null
 
 if [ ! -d "$dotfiles" ]; then
     git clone https://github.com/ratzo/dotfiles.git $dotfiles
