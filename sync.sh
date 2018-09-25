@@ -8,6 +8,7 @@ rsync --exclude ".git/" \
     --exclude "README.md" \
     --exclude "LICENSE" \
     --exclude "com.googlecode.iterm2.plist" \
+    --exclude "Swiss Arrows" \
     -avh --no-perms . ~;
 
 source ~/.zshrc;
