@@ -50,9 +50,4 @@ defaults write com.apple.dock autohide -bool true
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
 
-################################################################
-# DNS Servers - Override default DNS servers
-################################################################
-sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1
-
 echo "Done. Note that some of these changes require a logout/restart to take effect."
