@@ -38,14 +38,6 @@ brew upgrade;
 brew cask install iterm2
 cp com.googlecode.iterm2.plist $HOME/Library/Application\ Support
 
-brew install zsh;
-
-# Switch to using brew-installed zsh as default shell
-if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
-  echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells;
-  chsh -s /usr/local/bin/zsh;
-fi;
-
 curl -L http://install.ohmyz.sh | sh;
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh
